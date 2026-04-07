@@ -5,31 +5,20 @@ from functools import lru_cache
 import csv
 import os
 import threading
-import subprocess
-import requests
-
 import cv2
 import numpy as np
-
-
 from picamera2 import MappedArray, Picamera2
 from picamera2.devices import IMX500
 from picamera2.devices.imx500 import (
     NetworkIntrinsics,
     postprocess_nanodet_detection
 )
-
 from collections import deque
 from scipy.optimize import least_squares
-
-import sys
 import select
 import tty
 import termios
 
-from sort import Sort
-
-tracker = Sort()  # configure as needed
 
 # --- Setup for non-blocking key read ---
 fd = sys.stdin.fileno()
